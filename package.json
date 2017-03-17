@@ -1,0 +1,26 @@
+{
+  "name": "wannago",
+  "version": "1.0.0",
+  "description": "Application social - voyage : INGESUP B2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BSchum/WannaGo.git"
+  },
+  "author": "ODE LOICK - BRICE SCHUMASHER",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BSchum/WannaGo/issues"
+  },
+  "homepage": "https://github.com/BSchum/WannaGo#readme",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "mongoose": "^4.9.0"
+  }
+}
