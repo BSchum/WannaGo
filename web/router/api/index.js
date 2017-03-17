@@ -3,6 +3,6 @@
  */
 var router = require('express').Router();
 
-router.use('/user', require('./user'));
+router.use('/', require('./user'));
 
 module.exports = router;

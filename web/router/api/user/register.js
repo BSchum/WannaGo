@@ -6,22 +6,38 @@ var User = require('../../../../models/User');
 var hash = require('../../../../helper/hash');
 
 router.get('/', function (req,res) {
-    res.send("REGISTER");
+    res.send("PAGE REGISTER");
 });
 
-router.post('/', function(req,res){
+router.post('/voyageur', function(req,res){
+    Inscrire(req, res);
+});
+
+var Inscrire = function (req, res) {
+    //Verification du body
+    console.log("Fonction Inscrire : \n"+ req.body);
+
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
+    var date = req.body.date;
 
-    var newUser = new User({
+    saveUser(username, password, email, req, res);
+    password: hash.hashPassword(password);
+};
+
+var saveUser = function (username, password, email, date, req, res) {
+    var user = User({
         username: username,
         email: email,
-        password: hash.hashPassword(password)
-    }).save().then(function(userSaved){
-       res.json(userSaved);
+        password: password,
+        date: date
     });
-});
+    user
+        .save(function (userData) {
+            console.log("User data : " + userData);
+        });
+};
 
 router.get('/allUsers', function(req,res){
     getUser(req, res);
