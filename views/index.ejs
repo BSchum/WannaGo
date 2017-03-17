@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div ng-controller ="RegisterController">
+
+           <!-- <input type="text" ng-model="hello" />
+            <button ng-click="popup(hello)">Clic à pute</button> -->
+
+            <form>
+                <p>
+                    <label for="name">Votre nom</label> : <input type="text" name="name" ng-model="user.username" />
+                </p>
+                <p>
+                    <label for="email">Votre email</label> : <input type="text" name="email" ng-model="user.email" />
+                </p>
+                <p>
+                    <label for="password">Votre password</label> : <input type="password" name="password" ng-model="user.password"/>
+                </p>
+                <button ng-click="register()">Valider</button>
+            </form>
+
+            <div>
+                <p> Liste des utilisateurs</p>
+                <ul>
+                    <li ng-repeat="user in users track by $index">{{user}}</li>
+                </ul>
+            </div>
+            <button ng-click="refresh()"> Actualisation </button>
+        </div>
+        <script src="js/angular.min.js"></script>
+        <script src="app/app.module.js"></script>
+    </body>
+</html>
