@@ -4,8 +4,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var voyageurSchema = new Schema({
-    profile : {type: Schema.Types.ObjectId, ref: 'User'},
+var Schema = new Schema({
+    commerce : {type: Schema.Types.ObjectId, ref: 'User'},
     post : [{type : Schema.Types.ObjectId , ref:'Post'}],
     reservation : [{type: Schema.Types.ObjectId, ref:'Reservation'}]
 });
