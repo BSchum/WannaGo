@@ -5,6 +5,9 @@ var router = require('express').Router();
 var User = require('../../../../models/User');
 var Voyageur = require('../../../../models/Voyageur');
 var hash = require('../../../../helper/hash');
+var bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
 
 router.get('/', function (req,res) {
     res.send("PAGE REGISTER");
@@ -23,9 +26,7 @@ var Inscrire = function (req, res) {
     var password = req.body.password;
     var date = req.body.date;
 
-    saveUser(username, password, email, req, res);
-    res.end();
-
+    saveUser(username, password, email, date, req, res);
 };
 
 var saveUser = function (username, password, email, date, req, res) {
@@ -36,20 +37,21 @@ var saveUser = function (username, password, email, date, req, res) {
         date: date
     });
     user
-        .save(function (userData) {
-            console.log("User data : " + userData);
-            console.log("User._id " + user._id);
+        .save(function () {
             saveVoyageur(user._id , req , res);
         } , function (err) {
             console.log(err);
         });
 };
+
 var saveVoyageur = function (idUser, req, res) {
   var voyageur = Voyageur({
       profile: idUser
   });
   voyageur
-      .save()
+      .save(function () {
+          res.end();
+      });
 };
 
 router.get('/allUsers', function(req,res){

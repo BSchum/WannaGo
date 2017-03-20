@@ -4,6 +4,7 @@
 
 var dotenv = require('dotenv');
 var mongoose = require ('mongoose');
+mongoose.Promise = global.Promise;
 
 dotenv.config();
 
