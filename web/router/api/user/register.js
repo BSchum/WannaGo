@@ -60,7 +60,8 @@ var saveCommercant = function(idUser,req,res){
         .save(function(){
             res.end();
         });
-}
+};
+
 var saveVoyageur = function (idUser, req, res) {
   var voyageur = Voyageur({
       profile: idUser
