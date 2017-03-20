@@ -1,20 +1,44 @@
 var router = require('express').Router();
 
-var Commercant = require('../../../../models/Commerce');
+var Commerce = require('../../../../models/Commerce');
+var Commercant = require('../../../../models/Commercant');
+
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
 
-
-router.put('/commerce',function(req,res){
+router.get('/commerce',function(req,res){
+    res.send("Commerce");
+});
+router.put('/',function(req,res){
     //Création d'un commerce via un ID.
     InscriptionCommerce(req,res);
 
 });
-var InscriptionCommerce = function(){
+var InscriptionCommerce = function(req,res){
+    var id = req.body.id;
     var pays = req.body.pays;
-    var adresse = res.body.adresse;
-    var siren = res.body.siren;
-    var photos = res.body.photos;
+    var adresse = req.body.adresse;
+    var siren = req.body.siren;
+    var siteweb = req.body.siteweb;
+    var echelleTarif = req.body.echelleTarif;
+
+
+    saveCommerce(id,pays,adresse,siren,siteweb,echelleTarif,req,res);
+}
+
+var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
+    var commerce = Commerce({
+        pays: pays,
+        adresse: adresse,
+        siren: siren,
+        siteweb: siteweb,
+        echelleTarif: echelleTarif
+    });
+    commerce
+        .save(
+        function(err){
+            console.log("here"+err);
+        });  
 }
 module.exports = router;
