@@ -4,6 +4,7 @@
 var router = require('express').Router();
 var User = require('../../../../models/User');
 var Voyageur = require('../../../../models/Voyageur');
+var Commercant = require('../../../../models/Commercant');
 var hash = require('../../../../helper/hash');
 var bodyParser = require('body-parser');
 
@@ -13,10 +14,13 @@ router.get('/', function (req,res) {
     res.send("PAGE REGISTER");
 });
 
-router.put('/voyageur', function(req,res){
+router.put('/:voyageur', function(req,res){
     Inscrire(req, res);
 });
 
+router.put('/:commercant', function(req,res){
+    Inscrire(req,res);
+});
 var Inscrire = function (req, res) {
     //Verification du body
     console.log("Fonction Inscrire : \n"+ req.body);
@@ -38,12 +42,25 @@ var saveUser = function (username, password, email, date, req, res) {
     });
     user
         .save(function () {
-            saveVoyageur(user._id , req , res);
+            if(req.params.voyageur == "voyageur"){
+                saveVoyageur(user._id , req , res);
+            }
+            else{
+                saveCommercant(user._id,req,res);
+            }
         } , function (err) {
             console.log(err);
         });
 };
-
+var saveCommercant = function(idUser,req,res){
+    var commercant = Commercant({
+        profile: idUser
+    });
+    commercant
+        .save(function(){
+            res.end();
+        });
+}
 var saveVoyageur = function (idUser, req, res) {
   var voyageur = Voyageur({
       profile: idUser

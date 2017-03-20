@@ -6,25 +6,25 @@ var Schema = mongoose.Schema;
 
 var commerceSchema = new Schema({
     pays:{
-        type:string,
+        type:String,
         require:true
     },
     adresse:{
-        type:string,
+        type:String,
         require:true
     },
     siren:{
-        type:string,
+        type:String,
         require:true
     },
     photos:[{
         type:Schema.Types.ObjectId, ref:"Photos"
     }],
     siteweb:{
-        type:string
+        type:String
     },
     echelleTarif:{
-        type:string
+        type:String
     }
 
 
