@@ -3,13 +3,14 @@
  */
 var router = require('express').Router();
 var User = require('../../../../models/User');
+var Voyageur = require('../../../../models/Voyageur');
 var hash = require('../../../../helper/hash');
 
 router.get('/', function (req,res) {
     res.send("PAGE REGISTER");
 });
 
-router.post('/voyageur', function(req,res){
+router.put('/voyageur', function(req,res){
     Inscrire(req, res);
 });
 
@@ -23,20 +24,32 @@ var Inscrire = function (req, res) {
     var date = req.body.date;
 
     saveUser(username, password, email, req, res);
-    password: hash.hashPassword(password);
+    res.end();
+
 };
 
 var saveUser = function (username, password, email, date, req, res) {
     var user = User({
         username: username,
         email: email,
-        password: password,
+        password: hash.hashPassword(password),
         date: date
     });
     user
         .save(function (userData) {
             console.log("User data : " + userData);
+            console.log("User._id " + user._id);
+            saveVoyageur(user._id , req , res);
+        } , function (err) {
+            console.log(err);
         });
+};
+var saveVoyageur = function (idUser, req, res) {
+  var voyageur = Voyageur({
+      profile: idUser
+  });
+  voyageur
+      .save()
 };
 
 router.get('/allUsers', function(req,res){
