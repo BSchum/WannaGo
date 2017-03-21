@@ -15,11 +15,12 @@ router.put('/', function (req,res) {
 var InscriptionPhoto = function(req,res) {
     var url = req.body.url;
     var date = req.body.date;
+    var id = req.body.id;
 
-    savePhoto(url, date, req, res);
+    savePhoto(id, url, date, req, res);
 };
 
-var savePhoto = function(url, date, req, res){
+var savePhoto = function(id, url, date, req, res){
     var photo = Photo({
         url: url,
         date: date
@@ -35,7 +36,14 @@ var savePhoto = function(url, date, req, res){
                 {
                     res.json({ success: true, message: 'Votre photo est enregistré' })
                 }
-                res.end();
+                Commerce.findOne({_id:id},function(err,commerceDoc){
+                    console.log(commerceDoc)
+                    commerceDoc.photos.push(photo);
+                    commerceDoc.save(function(err,req,res){
+                        console.log(err);
+                    });
+                });
+            res.end();
             });
 };
 
