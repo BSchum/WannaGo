@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
     author : {type: Schema.Types.ObjectId , ref:'User'},
-    photo : {type : Schema.Types.ObjectId , ref:'Photo'},
+    photo : [{type : Schema.Types.ObjectId , ref:'Photo'}],
     commentaires: {type: Schema.Types.ObjectId , ref:'Commentaire'}
 });
 
