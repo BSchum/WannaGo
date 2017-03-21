@@ -16,10 +16,10 @@ var InscriptionPhoto = function(req,res) {
     var url = req.body.url;
     var date = req.body.date;
 
-    saveCommerce(url, date, req, res);
+    savePhoto(url, date, req, res);
 };
 
-var saveCommerce = function(url, date,req,res){
+var savePhoto = function(url, date, req, res){
     var photo = Photo({
         url: url,
         date: date
