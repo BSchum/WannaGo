@@ -1,0 +1,9 @@
+URL : http://localhost:4500/api/user/register/commercant
+DATA :
+{
+  "username":"BONJOUR",
+  "email":"TU@VA.BIEN",
+  "password":"Hello",
+  "date":"21/05/97"
+
+}

@@ -1,0 +1,9 @@
+URL : http://localhost:4500/api/commerce/register/
+DATA :
+{
+"id":"58d0eb3444f9d01b6c07da27",    //id du commercant
+"adresse":"22 rue anatole france",
+"siren":"eagzfzefzefz",
+"siteweb":"oloick.com",
+"echelleTarif":"bjr"
+}
