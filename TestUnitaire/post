@@ -1,0 +1,9 @@
+URL : http://localhost:4500/api/post/register
+DATA :
+{
+   "id_author":"58d128db2ddf5228d89c48d2",
+   "id_photo":"58d129ce33ab862228e792fa",
+   "commentaires":[{
+    "id":"58d132a26547a0046886b4a7"
+   }]
+}

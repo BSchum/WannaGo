@@ -1,0 +1,7 @@
+URL : http://localhost:4500/api/commentaire/register
+DATA :
+{
+    "id_author":"58d128db2ddf5228d89c48d2",
+    "date":"20/20/20",
+    "description":"Done !!!!"
+}

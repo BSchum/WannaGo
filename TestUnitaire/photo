@@ -1,6 +1,6 @@
 URL : http://localhost:4500/api/photo/register
 DATA :
 {
-  "url":"http://ceciEstUneURL.fr",
-  "date":"10/02/2018"
-}
+   "url":"http://ceciEstUneURL.fr",
+   "date":"10/02/2018"
+ }
