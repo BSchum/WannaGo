@@ -1,0 +1,18 @@
+URL : http://127.0.0.1:4500/api/user/register/voyageur ou http://127.0.0.1:4500/api/user/register/commercant
+DATA :
+{
+  "username":"Oloick",
+    "email":"lolo@lolo.fr",
+      "password":"loick",
+        "date":"28/02/2029"
+}
+
+
+
+
+URL: http://localhost:4500/api/user/authentification
+DATA :
+{
+  "username":"Oloick",
+   "password":"y9DR46HdIVYzr8fTGWISq1Dqpw/UCrhituJa0IlGjb8="
+}
