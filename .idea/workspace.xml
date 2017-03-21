@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91411f99-573a-4e83-b2d5-c10def036464" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestUnitaire/commentaire" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestUnitaire/post" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/router/api/commentaire/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/router/api/commentaire/register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/router/api/post/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/router/api/post/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestUnitaire/photo" afterPath="$PROJECT_DIR$/TestUnitaire/photo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Post.js" afterPath="$PROJECT_DIR$/models/Post.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/router/api/commerce/commerce.js" afterPath="$PROJECT_DIR$/web/router/api/commerce/commerce.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/router/api/index.js" afterPath="$PROJECT_DIR$/web/router/api/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/router/api/photo/register.js" afterPath="$PROJECT_DIR$/web/router/api/photo/register.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/router/api/post/register.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-33">
@@ -50,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post" pinned="false" current-in-tab="false">
+      <file leaf-file-name="post" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestUnitaire/post">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="264">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -827,15 +818,15 @@
       <workItem from="1490010197103" duration="10000" />
       <workItem from="1490013371026" duration="6964000" />
       <workItem from="1490020670531" duration="21000" />
-      <workItem from="1490083642604" duration="19842000" />
+      <workItem from="1490083642604" duration="20076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44622000" />
+    <option name="totallyTimeSpent" value="44856000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="0" width="3216" height="1714" extended-state="1" />
+    <frame x="-14" y="0" width="3216" height="1714" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1297,14 +1288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestUnitaire/post">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/router/api/post/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-33">
@@ -1312,6 +1295,14 @@
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestUnitaire/post">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
