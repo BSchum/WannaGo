@@ -47,8 +47,8 @@ var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
             });
             res.end();
         });
-}
-            console.log("here"+err);
-        });  
-};
+        console.log("here"+err);
+}  
+
+
 module.exports = router;
