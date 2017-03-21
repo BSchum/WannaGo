@@ -25,7 +25,7 @@ var InscriptionCommerce = function(req,res){
 
 
     saveCommerce(id,pays,adresse,siren,siteweb,echelleTarif,req,res);
-}
+};
 
 var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
     var commerce = Commerce({
@@ -40,5 +40,5 @@ var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
         function(err){
             console.log("here"+err);
         });  
-}
+};
 module.exports = router;
