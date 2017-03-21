@@ -38,7 +38,17 @@ var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
     commerce
         .save(
         function(err){
-            console.log("here"+err);
-        });  
-};
+            Commercant.findOne({_id:id},function(err,commercantDoc){
+                console.log(commercantDoc)
+                commercantDoc.commerce.push(commerce);
+                commercantDoc.save(function(err,req,res){
+                    console.log(err);
+                });
+            });
+            res.end();
+        });
+        console.log("here"+err);
+}  
+
+
 module.exports = router;
