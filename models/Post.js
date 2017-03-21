@@ -5,16 +5,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
-    text : {type:string},
+    author : {type: Schema.Types.ObjectId , ref:'User'},
     photo : {type : Schema.Types.ObjectId , ref:'Photo'},
-    lieu:{
-        type: string,
-        require:true
-    },
-    heure:{
-        type:number,
-        require:true
-    }
+    commentaires: {type: Schema.Types.ObjectId , ref:'Commentaire'}
 });
 
 module.exports = mongoose.model('Voyageur', voyageurSchema);
