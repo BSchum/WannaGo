@@ -20,5 +20,5 @@ app.use("/", require('./web'));
 var port = process.env.PORT || 4500;
 
 app.listen(port, function () {
-    console.log(`App running on port: ${port}`)
+    console.log(`App running on port: ${port}`);
 });
