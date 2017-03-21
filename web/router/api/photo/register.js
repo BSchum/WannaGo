@@ -23,7 +23,8 @@ var InscriptionPhoto = function(req,res) {
 var savePhoto = function(id, url, date, req, res){
     var photo = Photo({
         url: url,
-        date: date
+        date: date,
+        description: description
     });
     photo
         .save(
@@ -37,7 +38,7 @@ var savePhoto = function(id, url, date, req, res){
                     res.json({ success: true, message: 'Votre photo est enregistré' })
                 }
                 Commerce.findOne({_id:id},function(err,commerceDoc){
-                    console.log(commerceDoc)
+                    console.log(commerceDoc);
                     commerceDoc.photos.push(photo);
                     commerceDoc.save(function(err,req,res){
                         console.log(err);
