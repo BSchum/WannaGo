@@ -1,4 +1,6 @@
 var router = require('express').Router();
+var jwt = require('jsonwebtoken');
+
 router.use("/api/public",require("./api/public"));
 
 // route middleware to verify a token
@@ -11,7 +13,7 @@ router.use(function(req, res, next) {
     if (token) {
 
         // verifies secret and checks exp
-        jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+        jwt.verify(token, process.env.SECRET, function(err, decoded) {
             if (err) {
                 return res.json({ success: false, message: 'Failed to authenticate token.' });
             } else {
