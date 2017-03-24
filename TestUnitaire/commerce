@@ -1,4 +1,4 @@
-URL : http://localhost:4500/api/commerce/register/
+URL : http://localhost:4500/api/prive/commerce/register/
 DATA :
 {
 "id":"58d0eb3444f9d01b6c07da27",    //id du commercant

@@ -1,4 +1,4 @@
-URL : http://localhost:4500/api/user/register/commercant
+URL : http://localhost:4500/api/prive/user/register/commercant
 DATA :
 {
   "username":"BONJOUR",

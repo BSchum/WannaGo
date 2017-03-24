@@ -1,4 +1,4 @@
-URL : http://127.0.0.1:4500/api/user/register/voyageur ou http://127.0.0.1:4500/api/user/register/commercant
+URL : http://127.0.0.1:4500/api/public/user/register/voyageur ou http://127.0.0.1:4500/api/user/register/commercant
 DATA :
 {
   "username":"Oloick",
@@ -10,7 +10,7 @@ DATA :
 
 
 
-URL: http://localhost:4500/api/user/authentification
+URL: http://localhost:4500/api/public/user/authentification
 DATA :
 {
   "username":"Oloick",

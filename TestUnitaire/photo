@@ -1,4 +1,4 @@
-URL : http://localhost:4500/api/photo/register
+URL : http://localhost:4500/api/prive/photo/register
 DATA :
 {
    "url":"http://ceciEstUneURL.fr",
