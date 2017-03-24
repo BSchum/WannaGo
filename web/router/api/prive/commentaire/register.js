@@ -3,8 +3,8 @@
  */
 var router = require('express').Router();
 
-var User = require('../../../../models/User')
-var Commentaire= require('../../../../models/Commentaire');
+var User = require('../../../../../models/User')
+var Commentaire= require('../../../../../models/Commentaire');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());

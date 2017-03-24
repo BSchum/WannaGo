@@ -3,10 +3,10 @@
  */
 
 var router = require('express').Router();
-var User = require('../../../../models/User');
+var User = require('../../../../../models/User');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
-require('../../../../config');
+require('../../../../../config/index');
 
 router.use(bodyParser.json());
 
@@ -40,6 +40,7 @@ router.post('/', function (req,res) {
                     message: 'Enjoy your token!',
                     token: token
                 });
+                //res.redirect("/");
             }
 
         }

@@ -1,7 +1,7 @@
 var router = require('express').Router();
 
-var Commerce = require('../../../../models/Commerce');
-var Commercant = require('../../../../models/Commercant');
+var Commerce = require('../../../../../models/Commerce');
+var Commercant = require('../../../../../models/Commercant');
 
 var bodyParser = require('body-parser');
 

@@ -2,10 +2,10 @@
  * Created by user on 21/03/2017.
  */
 var router = require('express').Router();
-var User = require('../../../../models/User');
-var Post = require('../../../../models/Post');
-var Commentaire = require('../../../../models/Commentaire')
-var Photo = require('../../../../models/Photo');
+var User = require('../../../../../models/User');
+var Post = require('../../../../../models/Post');
+var Commentaire = require('../../../../../models/Commentaire')
+var Photo = require('../../../../../models/Photo');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());

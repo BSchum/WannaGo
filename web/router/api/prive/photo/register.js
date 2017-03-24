@@ -2,7 +2,7 @@
  * Created by user on 21/03/2017.
  */
 var router = require('express').Router();
-var Photo = require('../../../../models/Photo');
+var Photo = require('../../../../../models/Photo');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());

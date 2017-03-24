@@ -2,10 +2,10 @@
  * Created by user on 13/03/2017.
  */
 var router = require('express').Router();
-var User = require('../../../../models/User');
-var Voyageur = require('../../../../models/Voyageur');
-var Commercant = require('../../../../models/Commercant');
-var hash = require('../../../../helper/hash');
+var User = require('../../../../../models/User');
+var Voyageur = require('../../../../../models/Voyageur');
+var Commercant = require('../../../../../models/Commercant');
+var hash = require('../../../../../helper/hash');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());

@@ -3,6 +3,7 @@
  */
 
 var router = require('express').Router();
+var jwt = require('jsonwebtoken');
 
 router.get('/', function(req,res){
     res.render('index.ejs');
