@@ -4,6 +4,6 @@
 var router = require('express').Router();
 
 router.use('/register', require('./register.js'));
-//router.use('/authentification', require('./../public/authentification'));
+router.use('/authentification', require('./authentification'));
 
 module.exports = router;
