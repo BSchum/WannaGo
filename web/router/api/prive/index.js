@@ -5,10 +5,8 @@ var router = require('express').Router();
 
 router.use('/commerce',require('./commerce'));
 router.use('/photo', require('./photo'));
-
 router.use('/commentaire', require('./commentaire'));
 router.use('/post', require('./post'));
-
-//router.use('/admin', require('./admin'));
+router.use('/user', require('./user'));
 
 module.exports = router;

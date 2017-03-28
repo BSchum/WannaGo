@@ -34,7 +34,6 @@ router.use(function(req, res, next) {
 
     }
 });
-
 router.use("/api/prive",require("./api/prive"));
 router.use("/",require("./front"));
 

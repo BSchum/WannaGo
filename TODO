@@ -1,0 +1,26 @@
+//TODO
+Modifier tous les register qui utilise encore un req.body.id
+
+//TODO
+Trouver le moyen d'envoyer le token
+- LocalStoraage
+- SessionStorage
+- Cookie
+
+//TODO
+envoyé des JSON (réponse) pour chaque fonction : pour la notation
+
+//TODO
+Authentification facebook
+
+//TODO
+GPS - futur
+
+//TODO
+Admin - liste voyageurs, listes commercants, etc...
+
+//TODO
+Cacher un commentaire - user - post - etc... (supprimer sans supprimer en bdd)
+
+//TODO
+Fonctions de modification password, usersname, etc.. (faire du versionning)
