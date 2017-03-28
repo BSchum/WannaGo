@@ -1,13 +1,18 @@
 var router = require('express').Router();
 var jwt = require('jsonwebtoken');
 
+
+var cookieParser = require('cookie-parser');
+router.use(cookieParser());
+
 router.use("/api/public",require("./api/public"));
 
 // route middleware to verify a token
 router.use(function(req, res, next) {
 
     // check header or url parameters or post parameters for token
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.auth;
+    //console.log("Token is in index : %j" , token);
 
     // decode token
     if (token) {
