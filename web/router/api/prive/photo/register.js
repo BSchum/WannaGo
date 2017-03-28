@@ -28,6 +28,7 @@ var savePhoto = function(description, url, date, req, res){
     photo
         .save(function (err) {
             console.log(err);
+            res.send("Photo registered : "+photo);
             res.end();
         });
 };

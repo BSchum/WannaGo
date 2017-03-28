@@ -44,6 +44,7 @@ var saveCommerce = function(id,pays,adresse,siren,siteweb,echelleTarif,req,res){
                 commercantDoc.commerce.push(commerce);
                 commercantDoc.save(function(err,req,res){
                     console.log(err);
+                    res.send("Commercant saved: "+commercantDoc);
                 });
             });
             res.end();
