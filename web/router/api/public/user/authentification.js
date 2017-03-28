@@ -10,6 +10,9 @@ var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
 
+var cookieParser = require('cookie-parser');
+router.use(cookieParser());
+
 router.use(bodyParser.json());
 
 router.get('/', function (req,res) {
@@ -38,12 +41,15 @@ router.post('/', function (req,res) {
                 // create a token
                 var token = jwt.sign(user, process.env.SECRET);
 
-                // return the information including token as JSON
+               /* // return the information including token as JSON
                 res.json({
                     success: true,
                     message: 'Enjoy your token!',
                     token: token
                 });
+                */
+                res.cookie('auth',token);
+                res.send("ok");
                 //res.redirect("/");
             }
 

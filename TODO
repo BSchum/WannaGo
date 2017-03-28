@@ -24,3 +24,6 @@ Cacher un commentaire - user - post - etc... (supprimer sans supprimer en bdd)
 
 //TODO
 Fonctions de modification password, usersname, etc.. (faire du versionning)
+
+//TODO
+Appliquer les modifications - pour les cookies ! req.cookies.auth
