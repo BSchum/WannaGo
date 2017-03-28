@@ -16,3 +16,11 @@ DATA :
   "username":"Oloick",
    "password":"y9DR46HdIVYzr8fTGWISq1Dqpw/UCrhituJa0IlGjb8="
 }
+
+DATA USERADMIN
+{
+   "username":"admin",
+   "email":"admin@admin.fr",
+   "password":"ft9er2v5hn8y",
+   "date":"11/11/1337"
+}
