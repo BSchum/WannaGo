@@ -8,5 +8,5 @@ router.use('/photo', require('./photo'));
 router.use('/commentaire', require('./commentaire'));
 router.use('/post', require('./post'));
 router.use('/user', require('./user'));
-
+router.use('/admin', require('./admin'));
 module.exports = router;

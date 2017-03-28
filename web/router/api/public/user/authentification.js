@@ -4,6 +4,8 @@
 
 var router = require('express').Router();
 var User = require('../../../../../models/User');
+var hash = require('../../../../../helper/hash');
+var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
@@ -27,9 +29,11 @@ router.post('/', function (req,res) {
         if (!user) {
             res.json({ success: false, message: 'Authentication failed. User not found.' });
         } else if (user) {
+            password = req.body.password;
+            password = hash.hashPassword(password);
 
             // check if password matches
-            if (user.password != req.body.password) {
+            if (user.password != password) {
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
             } else {
 
