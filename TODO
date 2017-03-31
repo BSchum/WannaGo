@@ -1,13 +1,4 @@
 //TODO
-Modifier tous les register qui utilise encore un req.body.id
-
-//TODO
-Trouver le moyen d'envoyer le token
-- LocalStoraage
-- SessionStorage
-- Cookie
-
-//TODO
 envoyé des JSON (réponse) pour chaque fonction : pour la notation
 
 //TODO
@@ -26,4 +17,4 @@ Cacher un commentaire - user - post - etc... (supprimer sans supprimer en bdd)
 Fonctions de modification password, usersname, etc.. (faire du versionning)
 
 //TODO
-Appliquer les modifications - pour les cookies ! req.cookies.auth
+Appliquer les modifications - pour les cookies ! req.cookies.auth (DONE! exept commercant)

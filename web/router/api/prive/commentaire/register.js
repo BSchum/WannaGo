@@ -7,7 +7,6 @@ var User = require('../../../../../models/User')
 var Commentaire= require('../../../../../models/Commentaire');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
-// var testToken = require('../../../index');
 require('../../../../../config/index');
 
 router.use(bodyParser.json());

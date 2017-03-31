@@ -68,6 +68,10 @@ var saveVoyageur = function (idUser, req, res) {
   });
   voyageur
       .save(function () {
+          res.json({
+              sucess: true,
+              voyageur: voyageur
+          });
           res.end();
       });
 };
