@@ -1,5 +1,14 @@
 //TODO
-envoyé des JSON (réponse) pour chaque fonction : pour la notation
+Modifier tous les register qui utilise encore un req.body.id*******************a verifier mais je crois que c'est fait********************************
+
+//TODO
+Trouver le moyen d'envoyer le token
+- LocalStoraage
+- SessionStorage
+- Cookie
+
+//TODO
+envoyé des JSON (réponse) pour chaque fonction : pour la notation *************************FAIT**************************
 
 //TODO
 Authentification facebook
@@ -8,13 +17,10 @@ Authentification facebook
 GPS - futur
 
 //TODO
-Admin - liste voyageurs, listes commercants, etc...
+Admin - liste voyageurs, listes commercants, etc...   *****************FAIT*******************
 
 //TODO
 Cacher un commentaire - user - post - etc... (supprimer sans supprimer en bdd)
 
 //TODO
 Fonctions de modification password, usersname, etc.. (faire du versionning)
-
-//TODO
-Appliquer les modifications - pour les cookies ! req.cookies.auth (DONE! exept commercant)
