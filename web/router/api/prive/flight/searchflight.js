@@ -8,19 +8,27 @@ function PostKLMApi(req,res){
     var information = {
         origin:req.body.origin,
         destination:req.body.destination,
-        departureDate:req.body.departureDate
+        departureDate:req.body.departureDate,
+        cabinClass:req.body.cabinClass,
+        passengerCount:{
+            YOUNG_ADULT:req.body.YOUNG_ADULT,
+            INFANT:req.body.INFANT,
+            CHILD:req.body.CHILD,
+            ADULT:req.body.ADULT
+        },
+        currency:req.body.currency
     };
     var data =
     {
-        cabinClass:"ECONOMY",
+        cabinClass:information.cabinClass,
         discountCode:"",
         passengerCount:{
-            YOUNG_ADULT:1,
-            INFANT:0,
-            CHILD:0,
-            ADULT:2
+            YOUNG_ADULT:information.passengerCount.YOUNG_ADULT,
+            INFANT:information.passengerCount.INFANT,
+            CHILD:information.passengerCount.CHILD,
+            ADULT:information.passengerCount.ADULT
         },
-        currency:"EUR",
+        currency:information.currency,
         minimumAccuracy:"",
         requestedConnections:[
             {
@@ -39,6 +47,7 @@ function PostKLMApi(req,res){
         ],
         shortest:false     
     };
+    console.log(data);
    var options = {
        hostname:'api.klm.com',
        path:'/opendata/flightoffers/available-offers',
