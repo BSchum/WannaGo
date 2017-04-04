@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 router.use(cookieParser());
 
 router.use("/api/public",require("./api/public"));
+router.use("/",require("./front"));
 
 // route middleware to verify a token
 router.use(function(req, res, next) {
@@ -40,6 +41,5 @@ router.use(function(req, res, next) {
     }
 });
 router.use("/api/prive",require("./api/prive"));
-router.use("/",require("./front"));
 
 module.exports = router;

@@ -59,7 +59,7 @@ function PostKLMApi(req,res){
             'Accept-Language':'en-US',
             'Api-Key':'cejm8dakc66hmga7bw5m6aqp',
             'Content-Type':'application/json'
-        },
+        }
     };
     
     var req = http.request(options, (resR)=>{

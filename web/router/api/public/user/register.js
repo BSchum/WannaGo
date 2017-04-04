@@ -21,6 +21,7 @@ router.put('/:voyageur', function(req,res){
 router.put('/:commercant', function(req,res){
     Inscrire(req,res);
 });
+
 var Inscrire = function (req, res) {
     //Verification du body
     console.log("Fonction Inscrire : \n"+ req.body);
