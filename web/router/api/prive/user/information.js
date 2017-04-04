@@ -8,8 +8,6 @@ var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
 
 router.use(bodyParser.json());
-var cookieParser = require('cookie-parser');
-router.use(cookieParser());
 
 
 router.get('/', function (req,res) {
@@ -17,11 +15,8 @@ router.get('/', function (req,res) {
 });
 
 var informationUser = function (req,res) {
-    var token = req.cookies.auth;
-    var decoded = jwt.decode(token ,process.env.SECRET, true);
-
     return Voyageur
-      .findOne({profile : decoded._doc._id})
+      .findOne({profile : req.user._id})
       .populate('profile')
         .exec(function (err, voyageurData) {
            res.json(voyageurData);

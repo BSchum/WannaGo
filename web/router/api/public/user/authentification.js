@@ -9,6 +9,7 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
+require('../../../../../config/passport');
 
 var cookieParser = require('cookie-parser');
 router.use(cookieParser());
@@ -36,21 +37,20 @@ router.post('/', function (req,res) {
             if (user.password != password) {
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
             } else {
-
                 // if user is found and password is right
                 // create a token
-                var token = jwt.sign(user, process.env.SECRET);
+                var payload = { id: user.id };
+                var token = jwt.sign(payload, process.env.SECRET);
 
-               /* // return the information including token as JSON
+                // A traiter avec la partie front
+               //return the information including token as JSON
                 res.json({
                     success: true,
                     message: 'Enjoy your token!',
-                    token: token
+                    token: 'JWT ' + token
                 });
-                */
-                res.cookie('auth',token);
-                res.send("ok");
-                //res.redirect("/");
+                //res.cookie('auth',token);
+                //res.send("ok");
             }
 
         }

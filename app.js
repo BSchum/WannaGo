@@ -5,15 +5,17 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var passport = require('passport');
 
 //#Ionic
 var localhose = require('localhose');
 require('./config');
 
-
 var app = express();
-
 app.set('view engine', 'ejs');
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 //#Ionic
 localhose.set("api.ionic.dev");

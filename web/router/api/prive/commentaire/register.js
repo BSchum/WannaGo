@@ -10,8 +10,6 @@ var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
 
 router.use(bodyParser.json());
-var cookieParser = require('cookie-parser');
-router.use(cookieParser());
 
 router.put('/', function (req,res) {
     var commentaire = Commentaire();
@@ -26,9 +24,7 @@ var InscriptionCommentaire = function(commentaire, req, res) {
 };
 
 var saveUserInCommentaire = function(commentaire, req, res){
-    var token = req.cookies.auth;
-    var decoded = jwt.decode(token,process.env.SECRET, true);
-    var idAuthor = decoded._doc.username;
+    var idAuthor = req.user._id;
 
     return User
         .findOne({_id : idAuthor})
