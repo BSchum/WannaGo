@@ -11,8 +11,6 @@ var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
 require('../../../../../config/passport');
 
-var cookieParser = require('cookie-parser');
-router.use(cookieParser());
 
 router.use(bodyParser.json());
 
