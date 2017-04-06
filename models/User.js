@@ -14,17 +14,17 @@ var userSchema = new Schema({
         required: true
    },
     password : {
-       type:String,
-        //required: true
+       type:String
    },
     date:{
-       type: String,
-        //required: true
+       type: String
+    },
+    photo:{
+       type: String
     },
     facebook: {
         profileId: {
             type: Number
-            //required: true
         },
         access_token: {
             type: String
@@ -33,15 +33,14 @@ var userSchema = new Schema({
 });
 
 var User = mongoose.model('User', userSchema);
-User.findOrCreate = function(id, email, username, cb) {
-    console.log('id is is is %j', id)
+User.findOrCreate = function(id, email, username, photo, cb) {
     User.findOne({"facebook.profileId":id}, function(err, user) {
         console.log('Ici : ' + user);
         if(!user) {
             var user = User({'facebook.profileId': id,
                 email: email,
-                username: username});
-            console.log("user " + user);
+                username: username,
+                photo: photo});
             user
                 .save(function(rs) {
                 //console.log("model user : "+ user);

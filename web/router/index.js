@@ -4,6 +4,6 @@ var passport = require('passport');
 
 router.use("/api/public",require("./api/public"));
 router.use("/",require("./front"));
-router.use("/api/prive", passport.authenticate('bearer' , {session: false}), require("./api/prive"));
+router.use("/api/prive", passport.authenticate(['bearer','jwt'] , {session: false}), require("./api/prive"));
 
 module.exports = router;

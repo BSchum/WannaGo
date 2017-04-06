@@ -47,8 +47,6 @@ router.post('/', function (req,res) {
                     message: 'Enjoy your token!',
                     token: 'JWT ' + token
                 });
-                //res.cookie('auth',token);
-                //res.send("ok");
             }
 
         }

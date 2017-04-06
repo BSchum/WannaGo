@@ -10,4 +10,5 @@ router.use('/post', require('./post'));
 router.use('/user', require('./user'));
 router.use('/admin', require('./admin'));
 router.use('/flight', require('./flight'));
+router.use('/instagram', require('./instagram'));
 module.exports = router;

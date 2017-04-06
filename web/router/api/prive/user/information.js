@@ -4,7 +4,6 @@
 var router = require('express').Router();
 var Voyageur = require('../../../../../models/Voyageur')
 var bodyParser = require('body-parser');
-var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
 
 router.use(bodyParser.json());
@@ -18,6 +17,7 @@ var informationUser = function (req,res) {
     return Voyageur
       .findOne({profile : req.user._id})
       .populate('profile')
+        .populate('facebook')
         .exec(function (err, voyageurData) {
            res.json(voyageurData);
         });
