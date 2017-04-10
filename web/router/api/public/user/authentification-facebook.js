@@ -3,6 +3,8 @@
  */
 var router = require('express').Router();
 var User = require('../../../../../models/User');
+var Voyageur = require('../../../../../models/Voyageur');
+var Commercant = require('../../../../../models/Commercant');
 
 
 var passport = require('passport')
@@ -77,4 +79,31 @@ router.get(
     }
 );
 
+router.post('/voyageur', function (req, res) {
+    var voyageur = Voyageur({
+        profile: req.user
+    });
+    voyageur
+        .save(function () {
+            res.json({
+                sucess: true,
+                voyageur: voyageur
+            });
+            res.end();
+        });
+})
+
+router.post('/voyageur', function (req, res) {
+    var commercant = Commercant({
+        profile: req.user
+    });
+    commercant
+        .save(function () {
+            res.json({
+                sucess: true,
+                commercant: voyageur
+            });
+            res.end();
+        });
+})
 module.exports = router;

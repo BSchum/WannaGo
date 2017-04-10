@@ -4,5 +4,6 @@
 var router = require('express').Router();
 
 router.use('/information', require('./information'));
+router.use('/modification', require('./modification'));
 
 module.exports = router;

@@ -24,7 +24,6 @@ router.put('/:commercant', function(req,res){
 
 var Inscrire = function (req, res) {
     //Verification du body
-    console.log("Fonction Inscrire : \n"+ req.body);
 
     var username = req.body.username;
     var email = req.body.email;

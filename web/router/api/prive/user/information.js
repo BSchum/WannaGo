@@ -19,7 +19,11 @@ var informationUser = function (req,res) {
       .populate('profile')
         .populate('facebook')
         .exec(function (err, voyageurData) {
-           res.json(voyageurData);
+           res.json({
+               username: voyageurData.username,
+               email: voyageurData.email,
+               date: voyageurData.date
+           });
         });
 };
 
