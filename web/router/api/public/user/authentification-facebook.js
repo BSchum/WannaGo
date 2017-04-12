@@ -15,7 +15,7 @@ options = {
     clientID: '290350911389056',
     clientSecret: '1ead6e6cd602958dc6ba96ec03aebbaa',
     callbackURL: "http://localhost:4500/api/public/user/authentification-facebook/callback",
-    profileFields: ['email', 'displayName' ,'picture.type(large)']
+    profileFields: ['email', 'displayName' ,'picture.type(large)', 'cover']
 };
 
 
@@ -24,6 +24,7 @@ passport.use(
         options,
         function(accessToken, refreshToken, profile, done) {
             User.findOrCreate(profile.id, profile.emails[0].value, profile.displayName, profile.photos[0].value,
+                profile._json.cover.source,
                 function (err, result) {
                     if(result) {
                         result.facebook['access_token'] = accessToken;
@@ -80,30 +81,50 @@ router.get(
 );
 
 router.post('/voyageur', function (req, res) {
-    var voyageur = Voyageur({
-        profile: req.user
-    });
-    voyageur
-        .save(function () {
-            res.json({
-                sucess: true,
-                voyageur: voyageur
-            });
-            res.end();
-        });
+    Voyageur
+        .findOne({'profile' : req.user})
+        .exec(function (err, user) {
+            if(!user){
+                var voyageur = Voyageur({
+                    profile: req.user
+                });
+                voyageur
+                    .save(function () {
+                        res.json({
+                            sucess: true,
+                            voyageur: voyageur
+                        });
+                        res.end();
+                    });
+            }
+            else
+            {
+                res.end();
+            }
+        })
 })
 
-router.post('/voyageur', function (req, res) {
-    var commercant = Commercant({
-        profile: req.user
-    });
-    commercant
-        .save(function () {
-            res.json({
-                sucess: true,
-                commercant: voyageur
-            });
-            res.end();
-        });
+router.post('/commercant', function (req, res) {
+    Commercant
+        .findOne({'profile' : req.user})
+        .exec(function (err, user) {
+            if(!user){
+                var commercant = Commercant({
+                    profile: req.user
+                });
+                commercant
+                    .save(function () {
+                        res.json({
+                            sucess: true,
+                            commercant: commercant
+                        });
+                        res.end();
+                    });
+            }
+            else
+            {
+                res.end();
+            }
+        })
 })
 module.exports = router;
