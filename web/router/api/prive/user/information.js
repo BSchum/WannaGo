@@ -2,7 +2,7 @@
  * Created by user on 24/03/2017.
  */
 var router = require('express').Router();
-var Voyageur = require('../../../../../models/Voyageur')
+var User = require('../../../../../models/User')
 var bodyParser = require('body-parser');
 require('../../../../../config/index');
 
@@ -14,7 +14,7 @@ router.get('/', function (req,res) {
 });
 
 var informationUser = function (req,res) {
-    return Voyageur
+    return User
       .findOne({profile : req.user._id})
       .populate('profile')
         .populate('facebook')

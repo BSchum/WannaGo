@@ -69,6 +69,7 @@ router.get('/callback',
     function(req, res) {
         console.log("red.user : %j", req.user);
         res.redirect("profile?access_token=" + req.user.facebook.access_token);
+        res.json({Sucess : "ConnexionFacebook"});
     }
 );
 
