@@ -26,7 +26,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use("/", require('./web'));
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public/index.html'))
+});
 
 var port = process.env.PORT || 4500;
 
