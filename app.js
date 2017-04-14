@@ -6,6 +6,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var cors = require('cors')
+
 
 //#Ionic
 //var localhose = require('localhose');
@@ -21,6 +23,7 @@ require('./config/passport')(passport);
 //localhose.set("api.ionic.dev");
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", require('./web'));
