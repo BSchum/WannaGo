@@ -15,7 +15,7 @@ router.get('/', function (req,res) {
 
 var informationUser = function (req,res) {
     return User
-      .findOne({profile : req.user._id})
+      .findOne({_id : req.user._id})
       .populate('profile')
         .populate('facebook')
         .exec(function (err, voyageurData) {
