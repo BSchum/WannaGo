@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 //#Ionic
-var localhose = require('localhose');
+//var localhose = require('localhose');
 require('./config');
 
 var app = express();
@@ -18,7 +18,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 //#Ionic
-localhose.set("api.ionic.dev");
+//localhose.set("api.ionic.dev");
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
