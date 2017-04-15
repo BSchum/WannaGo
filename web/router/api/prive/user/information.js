@@ -16,8 +16,6 @@ router.get('/', function (req,res) {
 var informationUser = function (req,res) {
     return User
       .findOne({_id : req.user._id})
-      .populate('profile')
-        .populate('facebook')
         .exec(function (err, voyageurData) {
            res.json({
                username: voyageurData.username,
@@ -28,4 +26,3 @@ var informationUser = function (req,res) {
 };
 
 module.exports = router;
-
