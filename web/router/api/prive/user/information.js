@@ -21,7 +21,8 @@ var informationUser = function (req,res) {
                username: voyageurData.username,
                email: voyageurData.email,
                date: voyageurData.date,
-               photo: voyageurData.photo
+               photo: voyageurData.photo,
+               cover: voyageurData.cover
            });
         });
 };
