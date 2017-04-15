@@ -29,19 +29,22 @@ var Inscrire = function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var date = req.body.date;
+    var photo = req.body.photo
 
-    saveUser(username, password, email, date, req, res);
+    saveUser(username, password, email, date, photo, req, res);
 };
 
-var saveUser = function (username, password, email, date, req, res) {
+var saveUser = function (username, password, email, date,photo, req, res) {
     var user = User({
         username: username,
         email: email,
         password: hash.hashPassword(password),
-        date: date
+        date: date,
+        photo: photo
     });
     user
         .save(function () {
+          console.log(user);
             if(req.params.voyageur == "voyageur"){
                 saveVoyageur(user._id , req , res);
             }
