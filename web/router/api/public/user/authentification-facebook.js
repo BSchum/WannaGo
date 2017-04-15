@@ -82,22 +82,34 @@ router.get(
 );
 
 router.post('/saveUserFb', function (req,res){
-  var user = User({
-    username: req.body.username,
-    email: req.body.email,
-    date: req.body.date,
-    photo: req.body.photo,
-    cover: req.body.cover,
-    'facebook.profileId': req.body.profileId,
-    'facebook.access_token': req.body.token
-  });
-  user
-    .save(function(){
-      res.json({
-        sucess: true,
-        user: user
-      });
-      res.end();
+  User
+    .findOne({username: req.body.username})
+    .exec(function (err, user){
+      if(!user){
+        var user = User({
+          username: req.body.username,
+          email: req.body.email,
+          date: req.body.date,
+          photo: req.body.photo,
+          cover: req.body.cover,
+          'facebook.profileId': req.body.profileId,
+          'facebook.access_token': req.body.token
+        });
+        user
+          .save(function(){
+            res.json({
+              sucess: true,
+              user: user
+            });
+            res.end();
+          })
+      } else {
+        res.json({
+          sucess: "already log",
+          user: user
+        });
+        res.end();
+      }
     })
 })
 
