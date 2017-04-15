@@ -57,6 +57,8 @@ var saveUser = function (username, password, email, date,photo, req, res) {
             } , function (err) {
                 console.log(err);
             });
+      } else{
+        res.end();
       }
     })
 };
