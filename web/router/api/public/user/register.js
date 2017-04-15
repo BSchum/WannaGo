@@ -35,25 +35,30 @@ var Inscrire = function (req, res) {
 };
 
 var saveUser = function (username, password, email, date,photo, req, res) {
-    var user = User({
-        username: username,
-        email: email,
-        password: hash.hashPassword(password),
-        date: date,
-        photo: photo
-    });
-    user
-        .save(function () {
-          console.log(user);
-            if(req.params.voyageur == "voyageur"){
-                saveVoyageur(user._id , req , res);
-            }
-            else{
-                saveCommercant(user._id,req,res);
-            }
-        } , function (err) {
-            console.log(err);
+  User
+    .findOne({username: req.body.username})
+    .exec(function(err, user){
+      if(!user){
+        var user = User({
+            username: username,
+            email: email,
+            password: hash.hashPassword(password),
+            date: date,
+            photo: photo
         });
+        user
+            .save(function () {
+                if(req.params.voyageur == "voyageur"){
+                    saveVoyageur(user._id , req , res);
+                }
+                else{
+                    saveCommercant(user._id,req,res);
+                }
+            } , function (err) {
+                console.log(err);
+            });
+      }
+    })
 };
 var saveCommercant = function(idUser,req,res){
     var commercant = Commercant({
