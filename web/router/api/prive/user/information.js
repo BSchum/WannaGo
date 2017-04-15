@@ -20,7 +20,8 @@ var informationUser = function (req,res) {
            res.json({
                username: voyageurData.username,
                email: voyageurData.email,
-               date: voyageurData.date
+               date: voyageurData.date,
+               photo: voyageurData.photo
            });
         });
 };
