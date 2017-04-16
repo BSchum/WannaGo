@@ -4,14 +4,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var reservation = new Schema({
+var reservationSchema = new Schema({
     prix:{
-        type:number,
-        require:true
+        type:Number
     },
     date:{
-        type:Schema.Types.ObjectId, ref:"Date",
-        require:true
+        type:Schema.Types.ObjectId, ref:"Date"
     },
 });
 module.exports = mongoose.model('Reservation', reservationSchema);
