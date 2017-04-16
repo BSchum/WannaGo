@@ -5,6 +5,9 @@ var router = require('express').Router();
 var User = require('../../../../../models/User');
 var Voyageur = require('../../../../../models/Voyageur');
 var Commercant = require('../../../../../models/Commercant');
+var bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
 
 
 var passport = require('passport')
@@ -113,7 +116,7 @@ router.post('/saveUserFb', function (req,res){
     })
 })
 
-router.post('/voyageur', function (req, res) {
+router.post('/voyageur',  passport.authenticate(['bearer','jwt'] , {session: false}), function (req, res) {
     Voyageur
         .findOne({'profile' : req.user})
         .exec(function (err, user) {
@@ -137,7 +140,7 @@ router.post('/voyageur', function (req, res) {
         })
 })
 
-router.post('/commercant', function (req, res) {
+router.post('/commercant',  passport.authenticate(['bearer','jwt'] , {session: false}), function (req, res) {
     Commercant
         .findOne({'profile' : req.user})
         .exec(function (err, user) {
