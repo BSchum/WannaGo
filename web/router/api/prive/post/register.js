@@ -4,7 +4,8 @@
 var router = require('express').Router();
 var User = require('../../../../../models/User');
 var Post = require('../../../../../models/Post');
-var Commentaire = require('../../../../../models/Commentaire')
+var Commentaire = require('../../../../../models/Commentaire');
+var Voyageur = require('../../../../../models/Voyageur');
 var Photo = require('../../../../../models/Photo');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
@@ -34,17 +35,33 @@ var saveAuthor = function(post, req, res){
 };
 
 var addPhoto = function (post, req, res) {
-    var idPhoto = req.body.id_photo;
+  url = req.body.url;
+  date = req.body.date;
+  description = req.body.description;
 
-    return Photo
-        .findOne({_id : idPhoto})
-        .exec(function(err, PhotoData){
-            post.photo = PhotoData;
-            addCommentaire(post, req, res);
-        });
+  var photo = Photo({
+      url: url,
+      date: date,
+      description: description
+  });
+  photo
+      .save(function (err, data) {
+          addPhotoInPost(post, data._id, req, res);
+          console.log(err);
+      })
 };
 
+var addPhotoInPost = function(post, id, req, res) {
+  return Photo
+    .findOne({_id: id})
+    .exec(function(err, data){
+      post.photo = data;
+      addCommentaire(post, req, res);
+    })
+}
+
 var addCommentaire = function (post, req, res) {
+  console.log("req commentaires is : %j",req.body.commentaires)
     var all_commentaire = req.body.commentaires;
     var idCommentaires = [];
     all_commentaire.forEach(function (element) {
@@ -63,8 +80,24 @@ var addCommentaire = function (post, req, res) {
 var savePost = function(post, req, res){
     return post
         .save( function (err, data) {
-            res.send({post: post});
-            res.end();
+            savePostToVoyageur(post, req, res);
         });
 };
+
+var savePostToVoyageur= function(post, req, res){
+    Voyageur
+      .findOne({profile: req.user._id}, function (err, voyageur) {
+        console.log(" Voyageur is : %j", voyageur);
+        voyageur.post.push(post);
+        console.log(" 2 Voyageur is : %j", voyageur);
+        saveAll(voyageur, req, res);
+      })
+  }
+var saveAll = function(voyageur, req, res){
+  voyageur.save(function(err, data){
+    res.json({"voyageur": data});
+    res.end();
+  })
+}
+
 module.exports = router;

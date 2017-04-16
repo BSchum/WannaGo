@@ -6,8 +6,8 @@ var Schema = mongoose.Schema;
 
 var commentaireSchema = new Schema({
     author : {type: Schema.Types.ObjectId , ref:'User'},
-    description: {type : String, required:true},
-    date: {type: String, required:true}
+    description: {type : String},
+    date: {type: String}
 });
 
 module.exports = mongoose.model('Commentaire', commentaireSchema);

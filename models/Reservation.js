@@ -9,7 +9,7 @@ var reservationSchema = new Schema({
         type:Number
     },
     date:{
-        type:Schema.Types.ObjectId, ref:"Date"
-    },
+        type: String
+    }
 });
 module.exports = mongoose.model('Reservation', reservationSchema);
