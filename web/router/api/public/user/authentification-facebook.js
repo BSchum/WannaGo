@@ -119,7 +119,7 @@ router.post('/voyageur', function (req, res) {
         .exec(function (err, user) {
             if(!user){
                 var voyageur = Voyageur({
-                    profile: req.user._id
+                    profile: req.user
                 });
                 voyageur
                     .save(function () {
