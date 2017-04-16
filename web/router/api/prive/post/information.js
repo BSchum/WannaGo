@@ -3,6 +3,7 @@
  */
 var router = require('express').Router();
 var Post = require('../../../../../models/Post');
+var Photo = require('../../../../../models/Photo');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 require('../../../../../config/index');
@@ -13,6 +14,7 @@ router.use(bodyParser.json());
 router.get('/myPost', function (req,res) {
     return Post
         .find({author: req.user._id})
+        .populate('photo')
         .exec(function (err, dataPost) {
             res.json(dataPost);
         });
